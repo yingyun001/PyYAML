@@ -110,7 +110,8 @@ for data in yaml.load(document):
    print data
 
 print yaml.load(document)
-
+print '------------------------------------'
+print yaml.dump(yaml.load(document))
 print yaml.dump(yaml.load(document), default_flow_style=False)
 ~~~
 ~~~ bash
@@ -123,6 +124,15 @@ float
 list
 tumple
 {'none': [None, None], 'dist': {'age': 24, 'name': 'helen'}, 'int': 1, 'bool': [True, False, True, False], 'float': 3.1415926, 'list': ['guitar', 'piano', 'drum'], 'tumple': '(apple, pear, orange)'}
+------------------------------------
+bool: [true, false, true, false]
+dist: {age: 24, name: helen}
+float: 3.1415926
+int: 1
+list: [guitar, piano, drum]
+none: [null, null]
+tumple: (apple, pear, orange)
+
 bool:
 - true
 - false
@@ -141,6 +151,41 @@ none:
 - null
 - null
 tumple: (apple, pear, orange)
-
 ~~~
 
+使用 **`!!python/object`** 标签来构建 Python 类的实例。
+
+~~~ python
+import yaml
+
+class Student:
+   def __init__(self, name, score):
+      self.name = name
+      self.score = score
+   def __str__(self):
+      return "%s(name = %r, score = %s)" % (self.__class__.__name__, self.name, self.score)
+#  __repr__ = __str__
+
+data = yaml.load("""
+          !!python/object:__main__.Student
+          name: helen
+          score: 100
+       """)
+
+print data
+~~~
+
+~~~ bash
+# 运行结果
+Student(name = 'helen', score = 100)
+~~~
+
+> **注意：** 如果您是从不受信任的地方获取到 YAML 文件的，那么将 YAML 文件构建成 Python 对象是非常不安全的。**`yaml.safe_load`** 函数对 Python 的数值对象和列表对象的转换做了限制。
+
+只要一个 python 对象被标记为安全，那么它就通过了 `yaml.safe_load` 的验证了。要想做到这一点，Python 对象需要继承 yaml.YAMLObject 类（[Constructors, representers, resolvers](Constructors, representers, resolvers.md) 这里有详细的解释）然后将该类的属性 yaml.loader 设置成 yaml.SafeLoader。
+
+---
+
+Main：试验 yaml.SafeLoader
+
+---
