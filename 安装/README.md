@@ -26,7 +26,13 @@
    running install_egg_info
    Writing /usr/lib64/python2.7/site-packages/PyYAML-3.08-py2.7.egg-info
    ~~~
-
+   
+   > **提醒：**
+   > 如果您遇到如下错误，是因为您没有安装 `python-devel`。
+     ~~~ bash
+     ext/_yaml.c:4:20: 致命错误：Python.h：没有那个文件或目录
+     ~~~
+     
    > **注意**
    > 如果您想邦定 LibYAML（比纯 Python 版本要块的多）的话，您需要下载并安装 `LibYAML`。然后通过执行来邦定。
    ~~~ bash
