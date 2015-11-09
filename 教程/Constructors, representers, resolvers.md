@@ -30,4 +30,8 @@ Stu(name(repr) = 'helen', name(str) = helen, score = 100)
 
 **`yaml.YAMLObject`** 使用了 metaclass 来定义构造方法，这个构造方法将 YMAL 文件转换成一个类的实例。除了定义构造方法，还定义了表示器，该表示器可以将一个类的实例转换为一个 YAML 文件。
 
+如果您不想使用 metaclassed，您需要使用 **`yaml.add_constructor`** 和 **`yaml.add_representer`** 来定义您的构造函数和表示函数（representer）。例如，您也许想为下下面的 `Dice` 类添加一个构造器和表示器：
 
+~~~ python
+
+~~~
