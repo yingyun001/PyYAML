@@ -14,6 +14,7 @@
    ~~~
 
 3. 然后运行
+
    ~~~ bash
    $ sudo python setup.py install
    [helen@yingyun PyYAML-3.08]$ sudo python setup.py install
@@ -32,21 +33,23 @@
      ~~~ bash
      ext/_yaml.c:4:20: 致命错误：Python.h：没有那个文件或目录
      ~~~
+
      
    > **注意**
    > 如果您想邦定 LibYAML（比纯 Python 版本要块的多）的话，您需要下载并安装 `LibYAML`。然后通过执行来邦定。
-   ~~~ bash
-   $ wget http://pyyaml.org/download/libyaml/yaml-0.1.5.tar.gz
-   $ tar -zxvf yaml-0.1.5.tar.gz
-   $ make yaml-0.1.5
-   $ ./configure
-   $ make
-   # make install
-   $ cd ../PyYAML-3.08
-   $ python setup.py --with-libyaml install
-   ~~~
+     ~~~ bash
+     $ wget http://pyyaml.org/download/libyaml/yaml-0.1.5.tar.gz
+     $ tar -zxvf yaml-0.1.5.tar.gz
+     $ make yaml-0.1.5
+     $ ./configure
+     $ make
+     # make install
+     $ cd ../PyYAML-3.08
+     $ python setup.py --with-libyaml install
+     ~~~
  
    为了使用基于 parser（解析器） 和 emitter（发射器？）的 [LibYAML](http://pyyaml.org/wiki/LibYAML)，需要用到 **CParser** 与 **CEmitter**。例如，
+
    ~~~ python
    from yaml import load, dump
    try:
@@ -67,6 +70,7 @@
    
    我自己也做了试验：
    版本：
+
    ~~~ bash
    [helen@yingyun python]$ rpm -qa | grep yaml
    libyaml-0.1.4-11.el7_0.x86_64
@@ -149,5 +153,6 @@
      ~~~
 
 LibYAML is a YAML 1.1 parser and emitter written in C.
+
 > **注意**
   纯 Python 程序和基于 parser 和 emitter 的 [LibYAML](http://pyyaml.org/wiki/LibYAML) 会有些许不同之处，但无关紧要。
