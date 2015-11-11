@@ -150,4 +150,4 @@
 
 LibYAML is a YAML 1.1 parser and emitter written in C.
 > **注意**
-> 纯 Python 程序和基于 parser 和 emitter 的 [LibYAML](http://pyyaml.org/wiki/LibYAML) 会有些许不同之处，但无关紧要。
+  纯 Python 程序和基于 parser 和 emitter 的 [LibYAML](http://pyyaml.org/wiki/LibYAML) 会有些许不同之处，但无关紧要。
