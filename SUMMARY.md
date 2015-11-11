@@ -1,6 +1,6 @@
 # 目录
 
-* [ 安装](安装/README.md)
+* [ 安装]( 安装/README.md)
 * [常见问题](常见问题/README.md)
 * [对 Python 3 的支持](对 Python 3 的支持/README.md)
 * [教程](教程/README.md)
